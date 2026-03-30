@@ -115,7 +115,7 @@ export default function UserManager({
                     <td className="py-3 px-5 text-sm text-gray-500">{formatDate(u.created_at)}</td>
                     <td className="py-3 px-5">
                       {u.role === 'super_admin' && (
-                        <Shield className="w-4 h-4 text-red-400" title="Super admin" />
+                        <span title="Super admin"><Shield className="w-4 h-4 text-red-400" /></span>
                       )}
                     </td>
                   </tr>
