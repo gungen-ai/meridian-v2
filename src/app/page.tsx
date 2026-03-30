@@ -28,7 +28,7 @@ export default async function Home() {
       <section className="max-w-7xl mx-auto px-10 pt-20 pb-32 flex items-center justify-between gap-12">
         <div className="max-w-xl">
           <h1 className="text-5xl md:text-6xl font-extrabold leading-tight mb-6">
-            The Smart Engine for<br />Your Knowledge Base.
+            The Smart Engine for Your Knowledge Base.
           </h1>
           <p className="text-lg text-blue-200 mb-10 leading-relaxed">
             AI-powered creation, review, and maintenance<br />for high-performing teams.
