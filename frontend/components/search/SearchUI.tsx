@@ -24,7 +24,7 @@ export default function SearchUI({ categories, tags }: { categories: Category[];
   const [loading, setLoading] = useState(false)
   const [searched, setSearched] = useState(false)
   const [categoryId, setCategoryId] = useState('')
-  const debounceRef = useRef<NodeJS.Timeout>()
+  const debounceRef = useRef<NodeJS.Timeout | undefined>(undefined)
 
   useEffect(() => {
     if (query.length < 2) { setResults([]); setSearched(false); return }
