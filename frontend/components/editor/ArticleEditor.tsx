@@ -33,7 +33,7 @@ export default function ArticleEditor({ article, categories, tags, profiles, sel
   const [tagging, setTagging] = useState(false)
   const [showReviewModal, setShowReviewModal] = useState(false)
   const [reviewerId, setReviewerId] = useState('')
-  const autosaveRef = useRef<NodeJS.Timeout>()
+  const autosaveRef = useRef<NodeJS.Timeout | undefined>(undefined)
 
   const editor = useEditor({
     extensions: [
