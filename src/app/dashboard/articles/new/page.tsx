@@ -1,5 +1,6 @@
 import { createClient } from '@/backend/supabase/server'
 import ArticleEditor from '@/frontend/components/editor/ArticleEditor'
+import type { Profile } from '@/shared/types'
 
 export default async function NewArticlePage() {
   const supabase = await createClient()
@@ -16,7 +17,7 @@ export default async function NewArticlePage() {
       <ArticleEditor
         categories={categories ?? []}
         tags={tags ?? []}
-        profiles={profiles ?? []}
+        profiles={(profiles ?? []) as Profile[]}
       />
     </div>
   )

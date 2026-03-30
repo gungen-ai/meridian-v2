@@ -1,6 +1,7 @@
 import { createClient } from '@/backend/supabase/server'
 import { notFound } from 'next/navigation'
 import ArticleEditor from '@/frontend/components/editor/ArticleEditor'
+import type { Profile } from '@/shared/types'
 
 export default async function EditArticlePage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
@@ -29,7 +30,7 @@ export default async function EditArticlePage({ params }: { params: Promise<{ id
         article={article as any}
         categories={categories ?? []}
         tags={tags ?? []}
-        profiles={profiles ?? []}
+        profiles={(profiles ?? []) as Profile[]}
         selectedTagIds={(articleTags ?? []).map(t => t.tag_id)}
       />
     </div>
