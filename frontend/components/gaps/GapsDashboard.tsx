@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import toast from 'react-hot-toast'
-import { formatDateTime } from '@/lib/utils'
+import { formatDateTime } from '@/shared/lib/utils'
 import {
   AlertTriangle, Search, Plus, ArrowRight, X,
   Loader2, RefreshCw, Tag, FileText

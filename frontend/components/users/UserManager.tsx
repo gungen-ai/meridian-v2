@@ -1,8 +1,8 @@
 'use client'
 import { useState } from 'react'
 import toast from 'react-hot-toast'
-import { formatDate, ROLE_CONFIG } from '@/lib/utils'
-import type { UserRole } from '@/types'
+import { formatDate, ROLE_CONFIG } from '@/shared/lib/utils'
+import type { UserRole } from '@/shared/types'
 import { User, Shield, Loader2 } from 'lucide-react'
 
 interface UserRow {

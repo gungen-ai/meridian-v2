@@ -1,6 +1,6 @@
-import { createClient } from '@/lib/supabase/server'
+import { createClient } from '@/backend/supabase/server'
 import Link from 'next/link'
-import { formatDate, formatDateTime } from '@/lib/utils'
+import { formatDate, formatDateTime } from '@/shared/lib/utils'
 import { Plus, Server, Activity, Tag, Clock, MoreVertical } from 'lucide-react'
 
 export default async function McpServersPage() {

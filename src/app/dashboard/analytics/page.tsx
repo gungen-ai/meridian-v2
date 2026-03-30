@@ -1,5 +1,5 @@
-import { createClient } from '@/lib/supabase/server'
-import AnalyticsDashboard from '@/components/analytics/AnalyticsDashboard'
+import { createClient } from '@/backend/supabase/server'
+import AnalyticsDashboard from '@/frontend/components/analytics/AnalyticsDashboard'
 
 export default async function AnalyticsPage() {
   const supabase = await createClient()

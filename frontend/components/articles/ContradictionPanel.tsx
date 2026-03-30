@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import toast from 'react-hot-toast'
 import { AlertTriangle, CheckCircle, Loader2, ChevronDown, ChevronUp, Zap } from 'lucide-react'
-import { createClient } from '@/lib/supabase/client'
+import { createClient } from '@/backend/supabase/client'
 
 interface Contradiction {
   id: string

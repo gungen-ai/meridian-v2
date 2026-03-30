@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { createClient } from '@/lib/supabase/server'
-import { generateMcpToken } from '@/lib/mcp-token'
+import { createClient } from '@/backend/supabase/server'
+import { generateMcpToken } from '@/backend/mcp-token'
 
 export async function POST(_req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { createServiceClient } from '@/lib/supabase/server'
-import { verifyMcpToken } from '@/lib/mcp-token'
+import { createServiceClient } from '@/backend/supabase/server'
+import { verifyMcpToken } from '@/backend/mcp-token'
 
 export async function GET(
   request: NextRequest,

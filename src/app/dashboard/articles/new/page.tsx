@@ -1,5 +1,5 @@
-import { createClient } from '@/lib/supabase/server'
-import ArticleEditor from '@/components/editor/ArticleEditor'
+import { createClient } from '@/backend/supabase/server'
+import ArticleEditor from '@/frontend/components/editor/ArticleEditor'
 
 export default async function NewArticlePage() {
   const supabase = await createClient()

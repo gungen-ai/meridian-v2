@@ -1,5 +1,5 @@
-import { createClient } from '@/lib/supabase/server'
-import TagManager from '@/components/tags/TagManager'
+import { createClient } from '@/backend/supabase/server'
+import TagManager from '@/frontend/components/tags/TagManager'
 
 export default async function TagsPage() {
   const supabase = await createClient()

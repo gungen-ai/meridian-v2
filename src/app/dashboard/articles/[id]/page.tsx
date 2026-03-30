@@ -1,12 +1,12 @@
-import { createClient } from '@/lib/supabase/server'
+import { createClient } from '@/backend/supabase/server'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { formatDate, formatDateTime, STATUS_CONFIG, FRESHNESS_CONFIG } from '@/lib/utils'
-import ArticleActions from '@/components/articles/ArticleActions'
-import ReviewPanel from '@/components/articles/ReviewPanel'
-import TagPanel from '@/components/articles/TagPanel'
+import { formatDate, formatDateTime, STATUS_CONFIG, FRESHNESS_CONFIG } from '@/shared/lib/utils'
+import ArticleActions from '@/frontend/components/articles/ArticleActions'
+import ReviewPanel from '@/frontend/components/articles/ReviewPanel'
+import TagPanel from '@/frontend/components/articles/TagPanel'
 import { Edit, Clock, User, Tag } from 'lucide-react'
-import ContradictionPanel from '@/components/articles/ContradictionPanel'
+import ContradictionPanel from '@/frontend/components/articles/ContradictionPanel'
 
 export default async function ArticleDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params

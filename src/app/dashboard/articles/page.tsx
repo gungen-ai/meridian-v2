@@ -1,5 +1,5 @@
-import { createClient } from '@/lib/supabase/server'
-import { formatDate, STATUS_CONFIG, FRESHNESS_CONFIG } from '@/lib/utils'
+import { createClient } from '@/backend/supabase/server'
+import { formatDate, STATUS_CONFIG, FRESHNESS_CONFIG } from '@/shared/lib/utils'
 import Link from 'next/link'
 import { Plus, Search, FileText } from 'lucide-react'
 

@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { createServiceClient } from '@/lib/supabase/server'
-import { verifyMcpToken } from '@/lib/mcp-token'
-import { classifyGap } from '@/lib/intelligence'
+import { createServiceClient } from '@/backend/supabase/server'
+import { verifyMcpToken } from '@/backend/mcp-token'
+import { classifyGap } from '@/agents/claude/intelligence'
 
 export async function POST(
   request: NextRequest,

@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { use } from 'react'
-import { formatDate, formatDateTime } from '@/lib/utils'
+import { formatDate, formatDateTime } from '@/shared/lib/utils'
 import toast from 'react-hot-toast'
 import {
   Server, Tag, Activity, Copy, RefreshCw, Pause, Play,

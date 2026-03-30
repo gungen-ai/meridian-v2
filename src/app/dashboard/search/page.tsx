@@ -1,5 +1,5 @@
-import { createClient } from '@/lib/supabase/server'
-import SearchUI from '@/components/search/SearchUI'
+import { createClient } from '@/backend/supabase/server'
+import SearchUI from '@/frontend/components/search/SearchUI'
 
 export default async function SearchPage() {
   const supabase = await createClient()

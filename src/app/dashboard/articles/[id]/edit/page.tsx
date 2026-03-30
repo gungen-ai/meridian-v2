@@ -1,6 +1,6 @@
-import { createClient } from '@/lib/supabase/server'
+import { createClient } from '@/backend/supabase/server'
 import { notFound } from 'next/navigation'
-import ArticleEditor from '@/components/editor/ArticleEditor'
+import ArticleEditor from '@/frontend/components/editor/ArticleEditor'
 
 export default async function EditArticlePage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { createClient, createServiceClient } from '@/lib/supabase/server'
-import { htmlToPlainText } from '@/lib/claude'
+import { createClient, createServiceClient } from '@/backend/supabase/server'
+import { htmlToPlainText } from '@/agents/claude/claude'
 
 export async function GET(request: NextRequest) {
   const supabase = await createClient()

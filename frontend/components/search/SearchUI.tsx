@@ -2,7 +2,7 @@
 import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { Search, FileText, Tag, Clock, Loader2, X } from 'lucide-react'
-import { FRESHNESS_CONFIG, formatDate } from '@/lib/utils'
+import { FRESHNESS_CONFIG, formatDate } from '@/shared/lib/utils'
 
 interface Category { id: string; name: string; color: string }
 interface TagItem { id: string; name: string; category_id: string }

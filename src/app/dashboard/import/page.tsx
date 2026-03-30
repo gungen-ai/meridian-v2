@@ -1,5 +1,5 @@
-import { createClient } from '@/lib/supabase/server'
-import ImportTool from '@/components/ImportTool'
+import { createClient } from '@/backend/supabase/server'
+import ImportTool from '@/frontend/components/ImportTool'
 
 export default async function ImportPage() {
   const supabase = await createClient()

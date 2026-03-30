@@ -1,6 +1,6 @@
 'use client'
 import { useState } from 'react'
-import type { Tag } from '@/types'
+import type { Tag } from '@/shared/types'
 import { Tag as TagIcon, ChevronDown, X } from 'lucide-react'
 
 interface Props {

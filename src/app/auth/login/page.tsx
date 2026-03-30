@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
-import { createClient } from '@/lib/supabase/client'
+import { createClient } from '@/backend/supabase/client'
 import toast from 'react-hot-toast'
 import { BookOpen, Loader2 } from 'lucide-react'
 

@@ -2,8 +2,8 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import toast from 'react-hot-toast'
-import type { Article, Profile } from '@/types'
-import { canPublish } from '@/lib/utils'
+import type { Article, Profile } from '@/shared/types'
+import { canPublish } from '@/shared/lib/utils'
 import { CheckCircle, Archive, MoreVertical, Loader2 } from 'lucide-react'
 
 export default function ArticleActions({ article, profile }: { article: Article; profile: Profile }) {

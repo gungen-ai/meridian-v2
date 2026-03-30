@@ -7,7 +7,7 @@ import CodeBlock from '@tiptap/extension-code-block'
 import { useState, useEffect, useCallback, useRef } from 'react'
 import { useRouter } from 'next/navigation'
 import toast from 'react-hot-toast'
-import type { Article, Category, Tag, Profile } from '@/types'
+import type { Article, Category, Tag, Profile } from '@/shared/types'
 import TagSelector from './TagSelector'
 import {
   Bold, Italic, Heading1, Heading2, List, ListOrdered,

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { createClient } from '@/lib/supabase/server'
-import { generateReviewerBrief } from '@/lib/claude'
+import { createClient } from '@/backend/supabase/server'
+import { generateReviewerBrief } from '@/agents/claude/claude'
 
 export async function POST(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params

@@ -1,5 +1,5 @@
-import { createClient } from '@/lib/supabase/server'
-import GapsDashboard from '@/components/gaps/GapsDashboard'
+import { createClient } from '@/backend/supabase/server'
+import GapsDashboard from '@/frontend/components/gaps/GapsDashboard'
 
 export default async function GapsPage() {
   const supabase = await createClient()

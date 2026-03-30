@@ -1,6 +1,6 @@
-import { createClient } from '@/lib/supabase/server'
+import { createClient } from '@/backend/supabase/server'
 import { redirect } from 'next/navigation'
-import UserManager from '@/components/users/UserManager'
+import UserManager from '@/frontend/components/users/UserManager'
 
 export default async function UsersPage() {
   const supabase = await createClient()

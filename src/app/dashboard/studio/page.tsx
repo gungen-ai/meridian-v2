@@ -1,5 +1,5 @@
-import { createClient } from '@/lib/supabase/server'
-import ContentStudio from '@/components/studio/ContentStudio'
+import { createClient } from '@/backend/supabase/server'
+import ContentStudio from '@/frontend/components/studio/ContentStudio'
 
 export default async function StudioPage() {
   const supabase = await createClient()

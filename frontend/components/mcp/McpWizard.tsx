@@ -2,8 +2,8 @@
 import { useState, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
 import toast from 'react-hot-toast'
-import type { Tag, Category } from '@/types'
-import type { WizardState } from '@/types/mcp'
+import type { Tag, Category } from '@/shared/types'
+import type { WizardState } from '@/shared/types/mcp'
 import {
   Sparkles, ArrowRight, ArrowLeft, CheckCircle,
   Loader2, Copy, Terminal, Zap, Tag as TagIcon,

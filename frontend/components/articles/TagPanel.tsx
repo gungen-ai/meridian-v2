@@ -2,9 +2,9 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import toast from 'react-hot-toast'
-import type { ArticleTag, TagSuggestion } from '@/types'
+import type { ArticleTag, TagSuggestion } from '@/shared/types'
 import { Tag, Sparkles, Check, X } from 'lucide-react'
-import { createClient } from '@/lib/supabase/client'
+import { createClient } from '@/backend/supabase/client'
 
 interface Props {
   article: { id: string }

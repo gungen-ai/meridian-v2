@@ -1,5 +1,5 @@
-import { createClient } from '@/lib/supabase/server'
-import McpWizard from '@/components/mcp/McpWizard'
+import { createClient } from '@/backend/supabase/server'
+import McpWizard from '@/frontend/components/mcp/McpWizard'
 
 export default async function NewMcpServerPage() {
   const supabase = await createClient()

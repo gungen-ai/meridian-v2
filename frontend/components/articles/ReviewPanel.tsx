@@ -2,10 +2,10 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import toast from 'react-hot-toast'
-import type { Article, Profile, ReviewTask } from '@/types'
-import { formatDate } from '@/lib/utils'
+import type { Article, Profile, ReviewTask } from '@/shared/types'
+import { formatDate } from '@/shared/lib/utils'
 import { CheckCircle, XCircle, ChevronDown, ChevronUp, Sparkles } from 'lucide-react'
-import { createClient } from '@/lib/supabase/client'
+import { createClient } from '@/backend/supabase/client'
 
 interface Props {
   article: Article

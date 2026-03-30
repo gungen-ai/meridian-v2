@@ -2,9 +2,9 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import toast from 'react-hot-toast'
-import type { Category, Tag } from '@/types'
-import { canManageTaxonomy } from '@/lib/utils'
-import type { UserRole } from '@/types'
+import type { Category, Tag } from '@/shared/types'
+import { canManageTaxonomy } from '@/shared/lib/utils'
+import type { UserRole } from '@/shared/types'
 import { Plus, Tag as TagIcon, FolderOpen, X, Loader2 } from 'lucide-react'
 
 interface Props {
