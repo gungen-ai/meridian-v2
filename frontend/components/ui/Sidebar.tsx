@@ -6,7 +6,7 @@ import { createClient } from '@/backend/supabase/client'
 import type { Profile } from '@/shared/types'
 import { ROLE_CONFIG } from '@/shared/lib/utils'
 import {
-  BookOpen, LayoutDashboard, FileText, Tag,
+  LayoutDashboard, FileText, Tag,
   LogOut, ChevronDown, Server,
   BarChart3, Users, Upload, Sparkles, AlertTriangle
 } from 'lucide-react'
@@ -99,11 +99,9 @@ export default function Sidebar({ profile }: { profile: Profile | null }) {
 
       {/* Logo — BOTTOM */}
       <div className="flex items-center gap-2.5 px-4 py-4 border-t border-gray-100 bg-white shrink-0">
-        <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
-          <BookOpen className="w-4 h-4 text-white" />
-        </div>
+        <img src="/logo.svg" alt="Meridian" className="w-8 h-8 flex-shrink-0" />
         <div>
-          <p className="font-bold text-gray-900 text-sm leading-tight">Meridian</p>
+          <p className="font-bold text-blue-800 text-sm leading-tight">Meridian</p>
           <p className="text-xs text-gray-400">Knowledge Base</p>
         </div>
       </div>
