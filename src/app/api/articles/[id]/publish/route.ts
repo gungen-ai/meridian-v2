@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { createClient } from '@/backend/supabase/server'
+import { createClient, createServiceClient } from '@/backend/supabase/server'
+import { generateEmbedding } from '@/agents/claude/embeddings'
 
 export async function POST(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
@@ -45,6 +46,15 @@ export async function POST(request: NextRequest, { params }: { params: Promise<{
     event_type: 'article_published', entity_type: 'article',
     entity_id: id, actor_id: user.id, metadata: {},
   })
+
+  // Generate and store embedding asynchronously — don't block the publish response
+  const embeddingText = `${article.title} ${article.content_text}`
+  generateEmbedding(embeddingText)
+    .then(embedding => {
+      const service = createServiceClient()
+      return service.from('articles').update({ embedding }).eq('id', id)
+    })
+    .catch(err => console.error('Failed to generate embedding for article', id, err))
 
   return NextResponse.json({ data: article })
 }

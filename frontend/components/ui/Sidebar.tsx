@@ -8,7 +8,7 @@ import { ROLE_CONFIG } from '@/shared/lib/utils'
 import {
   LayoutDashboard, FileText, Tag,
   LogOut, ChevronDown, Server,
-  BarChart3, Users, Upload, Sparkles, AlertTriangle
+  BarChart3, Users, Upload, Sparkles, AlertTriangle, FlaskConical
 } from 'lucide-react'
 import toast from 'react-hot-toast'
 
@@ -20,8 +20,9 @@ const NAV_ITEMS = [
   { href: '/dashboard/gaps',      label: 'Knowledge Gaps',  icon: AlertTriangle },
   { href: '/dashboard/studio',    label: 'AI Generation',   icon: Sparkles },
   { href: '/dashboard/import',    label: 'Import',          icon: Upload },
-  { href: '/dashboard/mcp',       label: 'MCP Servers',     icon: Server },
-  { href: '/dashboard/analytics', label: 'Analytics',       icon: BarChart3 },
+  { href: '/dashboard/mcp',         label: 'MCP Servers',     icon: Server },
+  { href: '/dashboard/simulator',   label: 'Query Simulator', icon: FlaskConical },
+  { href: '/dashboard/analytics',   label: 'Analytics',       icon: BarChart3 },
   { href: '/dashboard/users',     label: 'User Management', icon: Users },
 ]
 

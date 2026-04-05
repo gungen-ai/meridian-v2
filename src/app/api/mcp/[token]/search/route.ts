@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { createServiceClient } from '@/backend/supabase/server'
 import { verifyMcpToken } from '@/backend/mcp-token'
 import { classifyGap } from '@/agents/claude/intelligence'
+import { generateQueryEmbedding, semanticSearch } from '@/agents/claude/embeddings'
 
 export async function POST(
   request: NextRequest,
@@ -28,30 +29,42 @@ export async function POST(
   const { query, limit = 5 } = body
   if (!query) return NextResponse.json({ error: 'query is required' }, { status: 400 })
 
-  // Scoped search
-  const { data: scopedArticles } = await supabase
-    .from('articles')
-    .select('id, title, content_text, updated_at, article_tags!inner(tag_id)')
-    .eq('status', 'published')
-    .in('article_tags.tag_id', payload.tag_ids)
-    .textSearch('content_text', query.split(' ').filter(Boolean).join(' | '), { type: 'plain', config: 'english' })
-    .limit(Math.min(limit, 10))
+  // 1. Try semantic search first
+  let unique: { id: string; title: string; content_text: string; updated_at?: string }[] = []
+  try {
+    const queryEmbedding = await generateQueryEmbedding(query)
+    const semanticResults = await semanticSearch(supabase, queryEmbedding, payload.tag_ids, Math.min(limit, 10))
+    unique = semanticResults
+  } catch (err) {
+    console.error('Semantic search failed, falling back to FTS:', err)
+  }
 
-  let results = scopedArticles ?? []
-
-  if (results.length === 0) {
-    const { data: fallback } = await supabase
+  // 2. Fall back to FTS then ilike
+  if (unique.length === 0) {
+    const { data: ftsResults } = await supabase
       .from('articles')
       .select('id, title, content_text, updated_at, article_tags!inner(tag_id)')
       .eq('status', 'published')
       .in('article_tags.tag_id', payload.tag_ids)
-      .or(`title.ilike.%${query}%,content_text.ilike.%${query}%`)
+      .textSearch('content_text', query.split(' ').filter(Boolean).join(' | '), { type: 'plain', config: 'english' })
       .limit(Math.min(limit, 10))
-    results = fallback ?? []
-  }
 
-  const seen = new Set<string>()
-  const unique = results.filter(a => { if (seen.has(a.id)) return false; seen.add(a.id); return true })
+    unique = ftsResults ?? []
+
+    if (unique.length === 0) {
+      const { data: fallback } = await supabase
+        .from('articles')
+        .select('id, title, content_text, updated_at, article_tags!inner(tag_id)')
+        .eq('status', 'published')
+        .in('article_tags.tag_id', payload.tag_ids)
+        .or(`title.ilike.%${query}%,content_text.ilike.%${query}%`)
+        .limit(Math.min(limit, 10))
+      unique = fallback ?? []
+    }
+
+    const seen = new Set<string>()
+    unique = unique.filter(a => { if (seen.has(a.id)) return false; seen.add(a.id); return true })
+  }
   const latency = Date.now() - start
   const isGap = unique.length === 0
 
